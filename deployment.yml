@@ -17,5 +17,11 @@ spec:
       containers:
       - name: go-hello-world
         image: arpitsrivastava529/go-hello-world:latest
+        env:
+        - name: DB_PORT
+          valueFrom:
+            configMapKeyRef:
+              name: test-cm
+              key: db-port 
         ports:
         - containerPort: 8000
